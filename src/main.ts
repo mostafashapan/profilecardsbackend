@@ -15,7 +15,7 @@ async function bootstrap() {
 
   // Enable CORS with your frontend URL
   app.enableCors({
-    origin: 'http://localhost:3001', // Replace with your frontend URL
+    origin: 'https://profilecardsfrontend.vercel.app', // Replace with your frontend URL
     methods: 'GET,POST,PUT,DELETE',  // Allowed methods
     allowedHeaders: 'Content-Type, Authorization', // Allowed headers
   });
