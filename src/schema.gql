@@ -1,0 +1,38 @@
+scalar GraphQLUpload  # Define GraphQLUpload scalar
+
+type User {
+  id: Int!
+  name: String!
+  role: String!
+  enterRole: String!
+  bio: String!
+  photo: String  # This will store the file path or URL of the photo
+}
+
+type Query {
+  user(id: Int!): User!
+  getAllUsers: [User!]!
+  checkDbConnection: String!
+}
+
+type Mutation {
+  updateUser(id: Int!, updateUserInput: UpdateUserInput!): User!
+  addUser(addUserInput: AddUserInput!, photo: GraphQLUpload): User!  # Corrected to GraphQLUpload
+  deleteUsers(ids: [Int!]!): Boolean!
+}
+
+input UpdateUserInput {
+  name: String
+  role: String
+  enterRole: String
+  bio: String
+  photo: String  # To handle photo URL/path
+}
+
+input AddUserInput {
+  name: String!
+  role: String!
+  enterRole: String!
+  bio: String!
+  photo: String  # This should store the file path or URL to the uploaded photo
+}

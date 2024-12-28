@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+"target": "es2021",                          // or "ES2017" or higher for newer features
+    "module": "CommonJS",                       // CommonJS for Node.js environment
+    "lib": ["ES6", "DOM"],                      // You might need DOM lib if you're working with frontend features
+    "experimentalDecorators": true,             // Necessary for NestJS decorators to work
+    "emitDecoratorMetadata": true,              // Essential for NestJS and TypeORM
+    "skipLibCheck": true,                       // Skips checking of declaration files for faster builds
+    "strict": true,                             // Enables strict type checking (optional but recommended)
+    "esModuleInterop": true,                    // Ensures compatibility with CommonJS modules
+    "moduleResolution": "node",                 // Ensures TypeScript uses Node's module resolution strategy
+    "resolveJsonModule": true,                  // Allow importing of JSON files
+    "noImplicitAny": false,                     // Disables errors for variables with implicit `any` type
+    "downlevelIteration": true,                 // Ensures for-of loops work with async/await in ES6
+    "isolatedModules": true,                    // Ensures TypeScript treats files as isolated modules (needed for JSX)
+    "forceConsistentCasingInFileNames": true,   // Ensures that file names are case-sensitive across platforms
+    "outDir": "./dist",                         // Output directory for compiled files
+    "rootDir": "./src", 
+                    // Root directory for TypeScript source files
+    "plugins": [
+      {
+        "name": "@nestjs/circular-dependency-plugin"
+      }
+    ]                                            // Corrected closing of the plugins array
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
